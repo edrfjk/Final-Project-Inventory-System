@@ -59,5 +59,4 @@
 
 <livewire:low-stock-table wire:poll.5s />
 
-
 @endsection

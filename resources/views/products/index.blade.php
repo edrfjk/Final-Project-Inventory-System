@@ -78,7 +78,7 @@
 </style>
 
 <div class="page-header">
-  <h1>📦 Products</h1>
+  <h1>Products</h1>
   <a href="{{ route('products.create') }}" class="btn btn-add">➕ Add Product</a>
 </div>
 

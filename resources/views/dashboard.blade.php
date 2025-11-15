@@ -55,63 +55,9 @@
   }
 </style>
 
-<h1 class="page-title">Dashboard Overview</h1>
 
-<div class="row g-4">
-  <div class="col-md-4">
-    <div class="stat-card bg-gradient-blue">
-      <div class="stat-icon">📦</div>
-      <div>
-        <h5 class="mb-1">Total Products</h5>
-        <h2>{{ $totalProducts ?? 0 }}</h2>
-      </div>
-    </div>
-  </div>
 
-  <div class="col-md-4">
-    <div class="stat-card bg-gradient-green">
-      <div class="stat-icon">📊</div>
-      <div>
-        <h5 class="mb-1">Total Quantity</h5>
-        <h2>{{ $totalQuantity ?? 0 }}</h2>
-      </div>
-    </div>
-  </div>
+<livewire:low-stock-table wire:poll.5s />
 
-  <div class="col-md-4">
-    <div class="stat-card bg-gradient-orange">
-      <div class="stat-icon">⚠️</div>
-      <div>
-        <h5 class="mb-1">Low Stock Items</h5>
-        <h2>{{ isset($lowStock) ? $lowStock->count() : 0 }}</h2>
-      </div>
-    </div>
-  </div>
-</div>
 
-@if(!empty($lowStock) && $lowStock->count())
-  <div class="low-stock-section">
-    <h4 class="mb-3">⚠️ Low Stock Alerts</h4>
-    <table class="table table-hover align-middle">
-      <thead class="table-light">
-        <tr>
-          <th>Product</th>
-          <th>SKU</th>
-          <th>Quantity</th>
-          <th>Reorder Level</th>
-        </tr>
-      </thead>
-      <tbody>
-        @foreach($lowStock as $p)
-          <tr class="table-warning">
-            <td><strong>{{ $p->name }}</strong></td>
-            <td>{{ $p->sku }}</td>
-            <td>{{ $p->quantity }}</td>
-            <td>{{ $p->reorder_level }}</td>
-          </tr>
-        @endforeach
-      </tbody>
-    </table>
-  </div>
-@endif
 @endsection
